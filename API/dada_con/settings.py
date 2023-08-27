@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Third Party Packages
     'rest_framework',
     'guardian',
+    'knox',
     
     # User defined modules
     
