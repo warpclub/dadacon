@@ -15,7 +15,7 @@ import Footer from './Components/Footer'
 import BakeServices from "./Components/BakeServices";
 import BakeProducts from "./Components/BakeProducts";
 import Chatbot from "./Components/ChatBot";
-import DadaNav from "./Components/dadaNav";
+import DadaNav from "./Components/DadaNav";
 import DadaHero from "./Components/DadaHero";
 
 function App() {
