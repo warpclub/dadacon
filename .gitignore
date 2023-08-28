@@ -1,3 +1,11 @@
+Scripts
+Lib
+Include
+pyvenv.cfg
+__pycache__
+*.sqlite3
+**/migrations/
+
 # Logs
 logs
 *.log
