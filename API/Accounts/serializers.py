@@ -21,7 +21,6 @@ class UserSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             password=validated_data['password'],
         )
-        # return user
     
     def update(self, instance, validated_data):
         instance.username = validated_data['username']
