@@ -1,10 +1,10 @@
 Scripts
 Lib
 Include
-migrations
 pyvenv.cfg
 __pycache__
 *.sqlite3
+**/migrations/
 
 # Logs
 logs
