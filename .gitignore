@@ -4,7 +4,7 @@ Include
 pyvenv.cfg
 __pycache__
 *.sqlite3
-**/migrations
+**/migrations/
 
 # Logs
 logs
