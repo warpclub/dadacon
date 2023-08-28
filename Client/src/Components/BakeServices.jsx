@@ -4,7 +4,7 @@ function BakeServices() {
   return (
     <div>
       <section className="text-gray-600 body-font border-b border-gray-300">
-  <div className="container px-5 py-20 mx-auto">
+  <div className="container px-5 py-12 mx-auto">
     <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
       <h1 className="sm:text-3xl md:text-5xl font-medium title-font mb-2 text-gray-900">Our Services</h1>
       <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">

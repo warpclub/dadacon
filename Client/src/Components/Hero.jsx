@@ -5,14 +5,14 @@ import { RxDotFilled } from 'react-icons/rx';
 function Hero() {
   const slides = [
     {
-      url: 'https://getwallpapers.com/wallpaper/full/3/6/9/733253-free-download-random-funny-wallpapers-1920x1200.jpg',
+      url: '/hero1.jpg',
     },
     {
-      url: 'https://e0.pxfuel.com/wallpapers/337/933/desktop-wallpaper-best-u-6-ultra-forest.jpg',
+      url: '/hero2.jpg',
 
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkmHZDJKj_Dd816zN4KJvh3xgDkNuF5uPTNw&usqp=CAU',
+      url: '/hero3.jpg',
 
     },
   ];

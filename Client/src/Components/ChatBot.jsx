@@ -1,7 +1,9 @@
 
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
- 
+import { Navigate, useNavigate } from 'react-router-dom';
+
+function App() {
 const steps = [
     {
         id: '1',
@@ -51,7 +53,7 @@ const steps = [
         user:true,
         validator: (value) => {
             if (value==='BirdIsTheWord') {
-              window.location.href='/dada';
+              navigate('/login');
             }
             return true;
         },
@@ -83,7 +85,8 @@ const config = {
     floating: true,
 };
  
-function App() {
+    
+const navigate=useNavigate()
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
