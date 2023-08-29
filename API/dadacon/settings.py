@@ -31,17 +31,22 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dadacon.onrender.com']
+if not DEBUG:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dadacon.onrender.com']
+else:
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
     
     # Third Party Packages
@@ -53,6 +58,7 @@ INSTALLED_APPS = [
     
     # User defined modules
     'Accounts',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +91,23 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dadacon.wsgi.application'
+ASGI_APPLICATION = "dadacon.asgi.application"
+
+if DEBUG:
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels.layers.InMemoryChannelLayer"
+        }
+    }
+else:
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                "hosts": [('red-cjmec536fquc73en0lm0', 6379)],
+            },
+        },
+    }
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
