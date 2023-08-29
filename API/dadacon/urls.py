@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('Accounts.urls')),
     path('user/', include('Accounts.routers')),
+    path('chat/', include('chat.urls')),
     path('auth/', include('knox.urls')),
 ]
