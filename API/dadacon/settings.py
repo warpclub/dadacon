@@ -37,7 +37,7 @@ if not DEBUG:
 else:
     ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://dadacon.onrender.com','http://127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['https://dadacon.onrender.com','http://127.0.0.1']
 
 # Application definition
 
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     # User defined modules
     'Accounts',
     'chat',
+    'bulletin',
 ]
 
 MIDDLEWARE = [
@@ -113,14 +114,16 @@ else:
         },
     }
 
-CORS_ALLOWED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'https://dadacon.vercel.app',
     'https://dadacon.netlify.app',
+    'https://dadacon.onrender.com',
+    'http://127.0.0.1',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
+CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'https://dadacon.vercel.app',

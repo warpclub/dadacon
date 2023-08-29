@@ -39,6 +39,7 @@ urlpatterns = [
     path('user/', include('Accounts.routers')),
     path('chat/', include('chat.urls')),
     path('auth/', include('knox.urls')),
+    path('bulletin/', include('bulletin.urls')),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
