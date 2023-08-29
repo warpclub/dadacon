@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
 from django.db.models import Q
 from django.shortcuts import redirect, reverse
 from rest_framework import permissions
@@ -51,11 +52,18 @@ class get_conversation(APIView):
 
 
 # @api_view(['GET'])
-class conversations(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-    # serializer_class = ConversationListSerializer(instance=conversation_list, many=True)
+# class conversations(APIView):
+#     permission_classes = [permissions.IsAuthenticated]
+#     # serializer_class = ConversationListSerializer(instance=conversation_list, many=True)
     
-    def get(self, request):
-        conversation_list = Conversation.objects.filter(Q(initiator=request.user) | Q(receiver=request.user))
-        serializer = ConversationListSerializer(instance=conversation_list)
-        return Response(serializer.data)
+#     def get(self, request):
+#         conversation_list = Conversation.objects.filter(Q(initiator=request.user) | Q(receiver=request.user))
+#         serializer = ConversationListSerializer(instance=conversation_list)
+#         return Response(serializer.data)
+
+class conversations_list(ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ConversationListSerializer
+    
+    def get_queryset(self):
+        return Conversation.objects.filter(Q(initiator=self.request.user) | Q(receiver=self.request.user))

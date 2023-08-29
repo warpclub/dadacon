@@ -40,16 +40,17 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'daphne',
     'django.contrib.staticfiles',
     
+    
     # Third Party Packages
+    'channels',
     'rest_framework',
     'guardian',
     'knox',
@@ -77,7 +78,7 @@ ROOT_URLCONF = 'dadacon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,7 +105,7 @@ else:
         'default': {
             'BACKEND': 'channels_redis.core.RedisChannelLayer',
             'CONFIG': {
-                "hosts": [('red-cjmec536fquc73en0lm0', 6379)],
+                "hosts": [(config('REDIS_HOST'), config('REDIS_PORT', cast=int))],
             },
         },
     }

@@ -9,6 +9,9 @@ class Conversation(models.Model):
         get_user_model(), on_delete=models.SET_NULL, null=True, related_name="convo_participant"
     )
     start_time = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ('-start_time',)
 
 
 class Message(models.Model):
