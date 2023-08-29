@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { index } from './Devices'
+
 
 const info=[
     {
@@ -62,8 +62,8 @@ const info=[
         'Enhanced security through an integrated biometric lock.',
         'Can be used for storage of documents etc.',
         "Carrying Secrets, Delivering Solutions.",],
+        size:'Black',
         color:'Large',
-        size:'Black'
 
     },{
         
@@ -83,7 +83,8 @@ const info=[
 ]
 
 function Device() {
-    const ind=Number(index)
+   
+const ind=Number(JSON.parse(localStorage.getItem('device_index')))
     const [Btn,switchBtn]=useState(0)
 
 const clickDes=()=>{
@@ -97,13 +98,14 @@ const clickFet=()=>{
     <div className='text-white'>
       <section className=" body-font overflow-hidden">
   <div className="container px-5 py-24 mx-auto">
-    <div className="lg:w-4/5 mx-auto flex flex-wrap">
+    <div className="lg:w-4/5 mx-auto flex flex-wrap-reverse">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h1 className="text-gray-900 text-3xl title-font font-medium font-Spy mb-4">{info[ind].title}</h1>
         <div className="flex mb-4">
           <a onClick={clickDes} className={`flex-grow border-b-2  ${Btn===0?'border-cyan-400 text-cyan-400':'border-gray-300'} py-2 text-lg px-1 hover:cursor-pointer`}>Description</a>
           <a onClick={clickFet} className={`flex-grow border-b-2  ${Btn!==0?'border-cyan-400 text-cyan-400':'border-gray-300'} py-2 text-lg px-1 hover:cursor-pointer`}>Features</a>
         </div>
+        <div className='h-[200px]'>
       {Btn===0?<><p className="leading-relaxed mb-4">{info[ind].description}</p><div className="flex border-t border-gray-200 py-2">
         <span className="text-white">Color</span>
         <span className="ml-auto text-gray-900">{info[ind].color}</span>
@@ -120,8 +122,9 @@ const clickFet=()=>{
                 })}
                 </ul>
             </>}
+            </div>
       </div>
-      <video autoplay='autoplay' loop alt="ecommerce" className="lg:w-1/2 w-full h-[400px] object-cover object-center rounded" ><source src={info[ind].src} /></video>
+      <video autoPlay='autoplay' muted='muted' loop alt="ecommerce" className="lg:w-1/2 w-full h-[395px] object-cover object-center rounded-lg" ><source src={info[ind].src} /></video>
 
     </div>
   </div>

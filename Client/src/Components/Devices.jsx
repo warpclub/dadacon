@@ -30,12 +30,13 @@ const slides=[{
 }
 ]
 
-let index
 
 function Devices(){
     
 const sendData= (event)=>{
-    index=event.target.getAttribute('id')
+    let index=event.target.getAttribute('id')
+    localStorage.setItem('device_index', JSON.stringify(index))
+    
  }
   return (
     <div className="container">
@@ -107,4 +108,3 @@ const sendData= (event)=>{
 
 export default Devices;
 
-export {index}

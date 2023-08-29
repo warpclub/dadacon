@@ -22,8 +22,11 @@ import DadaFoot from "./Components/DadaFoot";
 import Devices from "./Components/Devices";
 import Device from "./Components/Device";
 import Login from "./Components/Login";
+import Chatroom from "./Components/Chatroom";
+import Users from "./Components/Users";
 
 function App() {
+
 
   return (
     <Router>
@@ -53,7 +56,7 @@ function App() {
     <DadaFoot/>
     </>}/>
 
-    <Route exact path="/dada/notice"
+    <Route exact path="/notice"
     element={
     <>
     <DadaNav/>
@@ -64,11 +67,23 @@ function App() {
     <Route exact path="/device" element={<>
     <DadaNav/>
     <Device/>
-    <DadaFoot style={'absolute bottom-0'}/>
+    <DadaFoot/>
     </>}/>
+    <Route exact path='/chat' element={<>
+    <DadaNav/>
+    <Chatroom/>
+    <DadaFoot/>
+    </>}/>
+    <Route exact path='/user' element={<>
+    <DadaNav/>
+    <Users/>
+    <DadaFoot/>
+    </>}/>
+      
       </Routes>
     </Router>
   )
+
 }
 
 export default App
