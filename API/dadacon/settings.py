@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'knox',
     "corsheaders",
     'storages',
+    'drf_yasg',
     
     # User defined modules
     'Accounts',
