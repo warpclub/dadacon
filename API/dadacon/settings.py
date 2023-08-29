@@ -31,11 +31,13 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
+
 if not DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dadacon.onrender.com']
 else:
     ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://dadacon.onrender.com','http://127.0.0.1']
 
 # Application definition
 
