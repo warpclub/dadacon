@@ -2,7 +2,7 @@ import base64
 import json
 import secrets
 from datetime import datetime
-
+from urllib.parse import parse_qs
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from django.core.files.base import ContentFile
@@ -64,11 +64,10 @@ class ChatConsumer(WebsocketConsumer):
         conversation = Conversation.objects.get(id=int(self.room_name))
         # sleep(10)
         user = None
-        headers = dict(self.scope['headers'])
-        if b'authorization' in headers:
-            token_name, token_key = headers[b'authorization'].decode().split()
-            if token_name == 'Bearer':
-                user = getUser(token_key)
+        query_params = parse_qs(self.scope["query_string"].decode())
+        if 'token' in query_params:
+            token_key = query_params['token'][-1]
+            user = getUser(token_key)
         
         sender = user
 

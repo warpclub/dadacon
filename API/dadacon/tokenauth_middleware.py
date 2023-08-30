@@ -4,6 +4,7 @@ from knox.auth import TokenAuthentication
 from knox.crypto import hash_token
 from knox.models import AuthToken
 from channels.middleware import BaseMiddleware
+from urllib.parse import parse_qs
 from Accounts.models import User
 
 @database_sync_to_async
@@ -22,9 +23,9 @@ class TokenAuthMiddleware(BaseMiddleware):
         self.inner = inner
 
     async def __call__(self, scope, receive, send):
-        headers = dict(scope['headers'])
-        if b'authorization' in headers:
-            token_name, token_key = headers[b'authorization'].decode().split()
-            if token_name == 'Bearer':
-                scope['user'] = await get_user(token_key)
+        query_params = parse_qs(scope["query_string"].decode())
+        if 'token' in query_params:
+            token_key = query_params['token'][-1]
+            # if token_name == 'Bearer':
+            scope['user'] = await get_user(token_key)
         return await super().__call__(scope, receive, send)
