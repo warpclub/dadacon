@@ -46,7 +46,7 @@ const data=JSON.parse(localStorage.getItem('token'))
     <nav className="md:ml-auto max-[456px]:mx-auto flex flex-wrap items-center text-white justify-center">
       <Link className="mr-5 hover:cursor-pointer hover:text-gray-900" to='/notice'>Notices</Link>
       <Link to='/user' className="mr-5 hover:text-gray-900 hover:cursor-pointer" >Agents</Link>
-      {/* <Link to='/chat' className="mr-5 hover:text-gray-900 hover:cursor-pointer" >Chat Room</Link> */}
+      <Link to='/aafia' className="mr-5 hover:text-gray-900 hover:cursor-pointer" >Suspect Recognition</Link>
       <Link onClick={handleLogout} className=" hover:cursor-pointer bg-white text-blue-500 border border-blue-500 px-2 py-1 rounded-md hover:bg-cyan-500 hover:text-white hover:border-white" >Logout</Link>
     </nav>
 
