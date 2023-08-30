@@ -24,6 +24,7 @@ import Device from "./Components/Device";
 import Login from "./Components/Login";
 import Chatroom from "./Components/Chatroom";
 import Users from "./Components/Users";
+import FaceRecog from "./Components/FaceRecog";
 
 function App() {
 
@@ -79,7 +80,10 @@ function App() {
     <Users/>
     {/* <DadaFoot/> */}
     </>}/>
-      
+    <Route exact path='/aafia' element={<>
+    <DadaNav/>
+    <FaceRecog/>
+    </>}/>
       </Routes>
     </Router>
   )
