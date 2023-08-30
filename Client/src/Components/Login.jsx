@@ -55,11 +55,11 @@ const Login = ({sendData}) => {
     if(Object.keys(validationErrors).length === 0) {
         setLoading(true)
         axios.post('https://dadacon.onrender.com/auth/login/',{username:formData.email,password:formData.password}).then((res)=>{
-            console.log(res.status)
+            // console.log(res.status)
             if (res.status===200){
               let token=res.data.token
               localStorage.setItem('token',JSON.stringify(token))
-              console.log(res)
+              // console.log(res)
                 navigate('/dada')
             }
         }).catch((errors)=>{

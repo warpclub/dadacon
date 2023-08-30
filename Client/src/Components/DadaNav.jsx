@@ -6,19 +6,6 @@ import axios from 'axios';
 function DadaNav() {
 const data=JSON.parse(localStorage.getItem('token'))
 
-async function fetchData() {
-  // You can await here
-  const response = await axios.get('https://dadacon.onrender.com/user/',{
-    headers:{
-      'Authorization': 'Bearer '+ data
-    }
-  });
-  setUser(response.data.username)
-  console.log(response.data)
-  console.log(user)
-  // ...
-}
-
   function changeFavicon(src) {
     var link = document.createElement('link'),
         oldLink = document.getElementById('dynamic-favicon');
@@ -39,8 +26,6 @@ async function fetchData() {
     axios.post('https://dadacon.onrender.com/auth/logout/',{}, {headers: {
       'Authorization': 'Bearer '+ data
   }}).then((res)=>{
-    console.log(data);
-      console.log(res.status)
       if(res.status===204){
         localStorage.clear()
         navigate('/login')
@@ -48,7 +33,7 @@ async function fetchData() {
     })
    }
 
-  document.body.style.backgroundImage='linear-gradient(to bottom,#00004d,#adbed9)'
+  document.body.style.backgroundImage='url(/bgcompressed.png)'
   document.title='DADA-CON'
   return (
     <div>

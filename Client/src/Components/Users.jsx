@@ -17,9 +17,9 @@ const navigate=useNavigate()
   //   setLoading(false);
   // }, []);
   const [user,setUser]=useState()
-  const list=[]
-  const [l,setL]=useState()
-  const [loading,setLoading]=useState(true)
+  // const list=[]
+  // const [l,setL]=useState()
+  // const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     async function fetchData() {
@@ -30,62 +30,63 @@ const navigate=useNavigate()
         }
       });
       setUser(response.data[0].id)
-      console.log(response.data)
-      console.log(user)
+      // console.log(response.data)
+      // console.log(user)
       // ...
     }
     fetchData();
-    async function userList(){
-      const res = await axios.get('https://dadacon.onrender.com/auth/users/',{
-        headers:{
-          'Authorization': 'Bearer '+ data
-        }
-      });
-      res.data.forEach((item)=>{
-          list.push(item.id);
-        })
-      for (let i = 1; i <list.length; i++) {
-            if (list[i]===user){
-              list[i]=null
-            }
-          }
+    // async function userList(){
+    //   const res = await axios.get('https://dadacon.onrender.com/auth/users/',{
+    //     headers:{
+    //       'Authorization': 'Bearer '+ data
+    //     }
+    //   });
+    //   res.data.forEach((item)=>{
+    //       list.push(item.id);
+    //     })
+    //   for (let i = 1; i <list.length; i++) {
+    //         if (list[i]===user){
+    //           list[i]=null
+    //         }
+    //       }
           
-    setLoading(false)
-    console.log(list)
-    setL(list)
-      console.log(res.data)
+    // setLoading(false)
+    // console.log(list)
+    // setL(list)
+    //   console.log(res.data)
       
-    }
+    // }
 
-    userList()
+    // userList()
   }, []);
 
   // let username=e.target.id
-  // localStorage.setItem(username,JSON.stringify(['Hello']))
   // navigate('/chat')
-
-    const redirect=()=>{
-      console.log(user)
-        axios.post('https://dadacon.onrender.com/chat/start/',{username:user}, {headers: {
-          'Authorization': 'Bearer '+ data
-      }
-    }
-    )
-    .then((res)=>{
-        console.log(res);
-          if(res.status===200){
-            navigate('/chat')
-          }
-        })
+  
+  const redirect=()=>{
+    // console.log(user)
+    localStorage.setItem('m',JSON.stringify(['Hello']))
+      navigate('/chat')
+    //     axios.post('https://dadacon.onrender.com/chat/start/',{username:user}, {headers: {
+    //       'Authorization': 'Bearer '+ data
+    //   }
+    // }
+    // )
+    // .then((res)=>{
+    //     // console.log(res);
+    //       if(res.status===200){
+    //       }
+    //     })
        }
 
   return (
     <div className='text-white py-8'>
       <h1 className='text-center text-3xl min-[470px]:text-5xl font-semibold font-Spy mb-5'>Contact with Other Agents</h1>
-            {loading && <Spinner/>}
+            {/* {loading && <Spinner/>} */}
       <div className="flex flex-col w-1/3 mx-auto ">
 <div className="grid grid-cols-1 gap-y-1">
-{!loading && l.map((name,i)=>{return(<button key={i} onClick={redirect} id='username' className=" text-2xl p-5 shadow-gray-900/90 rounded-lg shadow-xl bg-gray-800 hover:cursor-pointer hover:bg-gray-600 min-[470px]:text-4xl font-semibold text-white mb-1 text-left ">{name}</button>)})}
+<button onClick={redirect} id='username' className=" text-2xl p-5 shadow-gray-900/90 rounded-lg shadow-xl bg-gray-800 hover:cursor-pointer hover:bg-gray-600 min-[470px]:text-4xl font-semibold text-white mb-1 text-left ">admin</button>
+<button onClick={redirect} id='username' className=" text-2xl p-5 shadow-gray-900/90 rounded-lg shadow-xl bg-gray-800 hover:cursor-pointer hover:bg-gray-600 min-[470px]:text-4xl font-semibold text-white mb-1 text-left ">agent-beta</button>
 </div>
     </div>
     </div>

@@ -100,7 +100,7 @@ const clickFet=()=>{
   <div className="container px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap-reverse">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h1 className="text-gray-900 text-3xl title-font font-medium font-Spy mb-4">{info[ind].title}</h1>
+        <h1 className="text-cyan-500 text-3xl title-font font-medium font-Spy mb-4">{info[ind].title}</h1>
         <div className="flex mb-4">
           <a onClick={clickDes} className={`flex-grow border-b-2  ${Btn===0?'border-cyan-400 text-cyan-400':'border-gray-300'} py-2 text-lg px-1 hover:cursor-pointer`}>Description</a>
           <a onClick={clickFet} className={`flex-grow border-b-2  ${Btn!==0?'border-cyan-400 text-cyan-400':'border-gray-300'} py-2 text-lg px-1 hover:cursor-pointer`}>Features</a>

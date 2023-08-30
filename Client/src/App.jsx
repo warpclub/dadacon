@@ -61,7 +61,7 @@ function App() {
     <>
     <DadaNav/>
     <Notices/>
-    <DadaFoot/>
+    {/* <DadaFoot/> */}
     </>}
     />
     <Route exact path="/device" element={<>
@@ -77,7 +77,7 @@ function App() {
     <Route exact path='/user' element={<>
     <DadaNav/>
     <Users/>
-    <DadaFoot/>
+    {/* <DadaFoot/> */}
     </>}/>
       
       </Routes>

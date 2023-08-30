@@ -40,7 +40,7 @@ const sendData= (event)=>{
  }
   return (
     <div className="container">
-      <h1 className="text-center text-5xl font-Spy">Our Devices</h1>
+      <h1 className="text-center text-white text-5xl font-Spy">Our Devices</h1>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
