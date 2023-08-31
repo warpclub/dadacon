@@ -90,7 +90,7 @@ function Users() {
 
 
         </div>
-        <div className='flex flex-wrap w-full justify-evenly mt-2 items-center gap-y-2 border-transparent'>
+        {!loading && <div className='flex flex-wrap w-full justify-evenly mt-2 items-center gap-y-2 border-transparent'>
           <input
             type='text'
             value={newContact}
@@ -99,7 +99,7 @@ function Users() {
             className='text-black p-2 focus:outline-none rounded-sm'
           />
           <input type='submit' className='hover:cursor-pointer hover:text-black border text-lg font-semibold bg-purple-500 rounded-md px-2 mb-3 border-transparent' value='Add New Contact' onClick={()=>addNewContact(newContact)} />
-        </div>
+        </div>}
         {infinte && <InfiniteSpinner/>}
         {vis ? <span className='text-red-400 block'>{mes}</span> : ''}
 
