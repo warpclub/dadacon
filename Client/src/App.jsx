@@ -80,7 +80,7 @@ function App() {
     <Users/>
     {/* <DadaFoot/> */}
     </>}/>
-    <Route exact path='/aafia' element={<>
+    <Route exact path='/suspect-recognition' element={<>
     <DadaNav/>
     <FaceRecog/>
     </>}/>
