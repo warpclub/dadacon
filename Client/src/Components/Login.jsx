@@ -84,7 +84,7 @@ const Login = ({ sendData }) => {
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen text-white bg-[url('/loginBg.jpg')] ">
-      <form onSubmit={handleSubmit} className=' h-[380px] shadow-2xl shadow-gray-300/40  w-96 bg-black/80 grid grid-cols-1 grid-rows-4 gap-y-3 rounded-lg p-5'>
+      <form onSubmit={handleSubmit} className=' h-[310px] shadow-2xl shadow-gray-300/40  w-96 bg-black/80 grid grid-cols-1 grid-rows-3 gap-y-3 rounded-lg p-5'>
 
         <div>
           <label className='block font-semibold '>Email</label>
@@ -92,7 +92,7 @@ const Login = ({ sendData }) => {
             className='w-full p-1 text-black'
             type="email"
             name="email"
-            //   placeholder='example@gmail.com'
+            placeholder='example@gmail.com'
             autoComplete='off'
             onChange={handleChange}
           />
