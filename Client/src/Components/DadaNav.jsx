@@ -37,7 +37,7 @@ const data=JSON.parse(localStorage.getItem('token'))
   document.title='DADA-CON'
   return (
     <div>
-      <header className="text-gray-600 bg-purple-600 body-font">
+      <header className="text-gray-600 bg-purple-600 shadow-lg rounded-b-xl shadow-gray-500 body-font">
   <div className="container mx-auto flex flex-wrap p-2  flex-row items-center justify-between">
     <a className="flex title-font font-medium items-center text-gray-900 mb-0 max-[456px]:mx-auto">
    <img src="/dadaLogo.png" alt="dadaLogo" className='min-[410px]:h-16 h-12'/>
