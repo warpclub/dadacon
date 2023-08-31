@@ -9,6 +9,7 @@ function Notices() {
   const [notices,setNotices]=useState()
   const [loading,setLoading]=useState(true)
 
+
     useEffect(() => {
       async function fetchData() {
         const response = await axios.get('https://dadacon.onrender.com/bulletin/',{
