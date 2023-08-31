@@ -189,14 +189,14 @@ function Chatroom() {
 
   return (
     <div>
-      <div className=" flex h-full antialiased text-gray-800">
+      <div className=" flex h-full antialiased text-gray-800 shrink">
 
-        <div className="flex flex-row h-[600px] w-5/6 mx-auto overflow-x-hidden">
+        <div className="flex flex-row h-[610px]  w-full min-[615px]:w-5/6 min-[621px]:mx-auto shrink overflow-x-hidden">
 
 
-          <div className="flex flex-col flex-auto h-[500px] p-6">
+          <div className="flex flex-col flex-auto h-[500px] shrink p-6">
             <div
-              className="flex flex-col flex-auto w-10/12 rounded-2xl bg-[url('/chatBG.jpg')] h-full p-4"
+              className="flex flex-col shrink flex-auto w-1/2 min-[430px]:w-8/12 min-[512px]:w-10/12 rounded-2xl bg-[url('/chatBG.jpg')] h-full p-4"
             >
               <div className="flex flex-col h-full overflow-x-auto mb-4">
                 <div className="flex flex-col h-full">
@@ -206,7 +206,7 @@ function Chatroom() {
                     {JSON.parse(localStorage.getItem('m')).map((m, i) => {
                       return (
                         <div key={i} className="p-3 rounded-lg">
-                          <div className="flex items-center justify-start flex-row-reverse">
+                          <div className="flex items-center shrink justify-start flex-row-reverse">
                             <div
                               className="flex items-center justify-center shrink-0 h-10 w-10 rounded-full bg-indigo-500 "
                             >
@@ -234,7 +234,7 @@ function Chatroom() {
             </div>
 
             <div className='flex w-4/5 gap-y-3 rounded-xl mt-4 justify-around min-[833px]:flex-row flex-col'>
-              <input type="text" className='p-2 rounded-xl w-3/4 shrink focus:outline-none'
+              <input type="text" className='p-2 rounded-xl w-1/2 min-[431px]:w-3/4 shrink focus:outline-none'
                 placeholder='Enter message....'
                 value={message}
                 onChange={handleChange} />
