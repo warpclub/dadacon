@@ -202,7 +202,7 @@ function Chatroom() {
                 <div className="flex flex-col h-full">
                   <div className="flex flex-col items-end gap-y-2 h-full " id='wall'>
 
-                    <span className="text-gray-500 text-center">The WebSocket is currently CONNECTING - {userToken}</span>
+                    <span className="text-gray-500 text-center">The WebSocket is currently OPEN</span>
                     {JSON.parse(localStorage.getItem('m')).map((m, i) => {
                       return (
                         <div key={i} className="p-3 rounded-lg">
