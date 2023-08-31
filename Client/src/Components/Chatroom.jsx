@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react'
 import axios from "axios";
-import { useAtomValue } from "jotai";
-// import useWebSocket, { ReadyState } from 'react-use-websocket';
-import SockJS from "sockjs-client/dist/sockjs";
-import { token } from "../../store";
+import { useParams } from "react-router-dom";
 
 const morseC = {
   a: ".-",
@@ -72,7 +69,42 @@ const morseC = {
 
 const messages = ['Hello']
 function Chatroom() {
-  const userToken = useAtomValue(token)
+  let { id } = useParams();
+  // console.log(id)
+  const userToken = JSON.parse(localStorage.getItem('token'))
+  // const wsStates = {
+  //   0: 'CONNECTING',
+  //   1: 'OPEN',
+  //   2: 'CLOSING',
+  //   3: 'CLOSED',
+  // }
+  
+
+  const [message, setMessage] = useState('');
+  const [morse, setMorse] = useState(false)
+  // const socketUrl = `wss://dadacon.onrender.com/ws/chat/${id}/?token=${userToken}`
+  // const ws = new WebSocket(socketUrl);
+  // let [connectionStatus, setConnectionStatus] = useState(wsStates[ws.readyState])
+  // console.log(wsStates[0], ws.readyState)
+
+  // useEffect(() => {
+  //   setConnectionStatus(wsStates[ws.readyState])
+  //   console.log(ws.readyState)
+  // }, [ws.readyState])
+
+  // ws.addEventListener("open", (event) => {
+  //   console.log('Connected')
+  //   setConnectionStatus('Open')
+  //   sendMessage('Hello, Boss')
+  // });
+
+  // ws.addEventListener("message", (event) => {
+  //   console.log('Message received: ', event.data)
+  // });
+
+  // if (connectionStatus==='Open') {
+  //   ws.send(JSON.stringify({ 'text': 'Hello', 'morse': false }))
+  // }
 
 
   function Encode(text) {
@@ -96,20 +128,24 @@ function Chatroom() {
     return str;
   }
 
-  const [message, setMessage] = useState('');
-  const [morse, setMorse] = useState(false)
-  const socketUrl = `wss://dadacon.onrender.com/ws/chat/1/?token=${userToken}`
-  const client = new WebSocket(socketUrl);
-  const [connectionStatus, setConnectionStatus] = 'not ready'
+  // const sendMessage = (text, morse=false) => {
+  //   ws.send(JSON.stringify({ 'text': text, 'morse': morse }))
+  //   if (morse) {
+  //     messages.push(Encode(text))
+  //   } else {
+  //     messages.push(text)
+  //   }
+  // }
 
-  client.onopen = () => {
-    setConnectionStatus('open')
-  }
 
-  client.onmessage = () => {
-    console.log(message)
-  }
-  
+  // client.onopen = () => {
+  //   setConnectionStatus('open')
+  // }
+
+  // client.onmessage = () => {
+  //   console.log(message)
+  // }
+
   // client.connect(socketUrl)
 
   const sendMsg = async () => {
@@ -125,9 +161,9 @@ function Chatroom() {
 
     messages.push(message)
     localStorage.setItem('m', JSON.stringify(messages))
-    client.send({
-      message: JSON.stringify({ 'text': message, 'morse': morse })
-    })
+    // client.send({
+    //   message: JSON.stringify({ 'text': message, 'morse': morse })
+    // })
 
     setMessage('')
     setMorse(false)
@@ -154,7 +190,7 @@ function Chatroom() {
   return (
     <div>
       <div className=" flex h-full antialiased text-gray-800">
-        
+
         <div className="flex flex-row h-[600px] w-5/6 mx-auto overflow-x-hidden">
 
 
@@ -166,7 +202,7 @@ function Chatroom() {
                 <div className="flex flex-col h-full">
                   <div className="flex flex-col items-end gap-y-2 h-full " id='wall'>
 
-                    <span className="text-gray-500 text-center">The WebSocket is currently {connectionStatus} - {userToken}</span>
+                    <span className="text-gray-500 text-center">The WebSocket is currently CONNECTING - {userToken}</span>
                     {JSON.parse(localStorage.getItem('m')).map((m, i) => {
                       return (
                         <div key={i} className="p-3 rounded-lg">

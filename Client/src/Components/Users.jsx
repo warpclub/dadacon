@@ -57,7 +57,7 @@ function Users() {
       setVis(true)
       setInfinite(false)
       if (res.status == 200) {
-        console.log(res.data)
+        // console.log(res.data)
         setMes(res.data.message)
         // window.location.reload()
         fetchChats()

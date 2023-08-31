@@ -69,7 +69,7 @@ function App() {
     <Device/>
     <DadaFoot/>
     </>}/>
-    <Route exact path='/chat' element={<>
+    <Route path='/chat/:id' element={<>
     <DadaNav/>
     <Chatroom/>
     <DadaFoot/>
