@@ -8,8 +8,8 @@ import { token, user } from '../../store'
 
 function Users() {
   // const data=JSON.parse(localStorage.getItem('token'))
-  const userToken = useAtomValue(token)
-  const loggedInUser = useAtomValue(user)
+  let userToken = JSON.parse(localStorage.getItem('token'))
+  let loggedInUser = JSON.parse(localStorage.getItem('user'))
 
   const [vis,setVis]=useState(false)
   const[ mes,setMes]=useState('')
@@ -33,7 +33,9 @@ function Users() {
       })
   }
 
-  useEffect(() => fetchChats(), [])
+  useEffect(() => {
+    fetchChats()
+  }, [])
 
   const redirect = (id) => {
     localStorage.setItem('m', JSON.stringify(['Hello']))
