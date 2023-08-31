@@ -108,11 +108,11 @@ const clickFet=()=>{
         <div className='h-[200px]'>
       {Btn===0?<><p className="leading-relaxed mb-4">{info[ind].description}</p><div className="flex border-t border-gray-200 py-2">
         <span className="text-white">Color</span>
-        <span className="ml-auto text-gray-900">{info[ind].color}</span>
+        <span className="ml-auto text-white">{info[ind].color}</span>
         </div>
         <div className="flex border-t border-gray-200 py-2">
             <span className="text-white">Size</span>
-            <span className="ml-auto text-gray-900">{info[ind].size}</span>
+            <span className="ml-auto text-white">{info[ind].size}</span>
             </div></>:<>
             <ul className='list-disc'>
             {info[ind].bullets.map((bullet,i)=>{
@@ -124,7 +124,7 @@ const clickFet=()=>{
             </>}
             </div>
       </div>
-      <video autoPlay='autoplay' muted='muted' loop alt="ecommerce" className="lg:w-1/2 w-full h-[395px] object-cover object-center rounded-lg" ><source src={info[ind].src} /></video>
+      <video autoPlay='autoplay' muted='muted' loop alt="ecommerce" className="lg:w-1/2 w-full h-[412px] object-cover object-center rounded-lg" ><source src={info[ind].src} /></video>
 
     </div>
   </div>

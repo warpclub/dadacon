@@ -1,17 +1,23 @@
 import React from 'react'
+import Spinner from './Spinner'
+import { useState } from 'react';
 
 function FaceRecog() {
     const URL = "https://teachablemachine.withgoogle.com/models/nA-FTeXc5/";
     
-    
+    const [loading,setLoading]=useState(false)
+
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
     // or files from your local hard drive
     // Note: the pose library adds "tmImage" object to your window (window.tmImage)
     let model, webcam, labelContainer, maxPredictions;
+
+
     async function init() {
         const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
+    setLoading(true)
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
@@ -27,6 +33,7 @@ function FaceRecog() {
         labelContainer = document.getElementById("label-container");
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
+        setLoading(false);
         }
     }
 
@@ -53,6 +60,7 @@ function FaceRecog() {
 <button type="button" className='border text-xl font-semibold bg-purple-500 rounded-md px-2 mb-3' onClick={init}>Start</button>
 <div className='text-white' id="webcam-container"></div>
 <div className='text-white ' id="label-container"></div>
+{loading && <Spinner/>}
     {/* // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
