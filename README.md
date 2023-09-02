@@ -22,4 +22,3 @@ A full-stack web app to make the work of DADA-CON agents easier.
 - WebSockets
 - PostgreSQL
 - Blender
-- 
